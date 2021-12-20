@@ -1,0 +1,66 @@
+ <mvc:View controllerName="com.vravipati.integrationsuiteextensionapp1.controller.TestCases"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Page title="{i18n>title}">
+    <content>
+ 	  	<Table 
+			id="idTestCaseTable"
+			items="{TestCases>/testcases}"
+			mode="SingleSelectMaster"
+			itemPress="onListItemPressed"
+			selectionChange="onListItemPressed">
+        <columns>
+          <Column
+            width="5em"
+            hAlign="Left">
+            <Text text="ID" />
+          </Column>
+          <Column
+            width="15em"
+            hAlign="Center">
+            <Text text="Name" />
+          </Column>
+          <Column
+            width="15em"
+            hAlign="Center">
+            <Text text="Testcase" />
+          </Column>
+          <Column
+            width="15em"
+            hAlign="Center">
+            <Text text="Description" />
+          </Column>
+          <Column
+            width="5em"
+            hAlign="Center">
+            <Text text="Method" />
+          </Column>
+          <Column
+            width="11em"
+            hAlign="Center">
+            <Text text="Input" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text 
+                text="{TestCases>ID}"/>
+              <Text 
+                text="{TestCases>Name}" />
+              <Text 
+                text="{TestCases>Testcase}" />
+              <Text 
+                text="{TestCases>Description}" />
+              <Text 
+                text="{TestCases>Method}" />
+              <Text 
+                text="{TestCases>Input}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+  </Page>
+</mvc:View>

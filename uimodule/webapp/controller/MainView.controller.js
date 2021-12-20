@@ -1,15 +1,5 @@
-sap.ui.define([
-    "./BaseController"
-],
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function (Controller) {
-        "use strict";
+sap.ui.define(["com/vravipati/integrationsuiteextensionapp1/controller/BaseController"], function (Controller) {
+    "use strict";
 
-        return Controller.extend("com.vravipati.integrationsuiteextensionapp1.controller.MainView", {
-            onInit: function () {
-
-            }
-        });
-    });
+    return Controller.extend("com.vravipati.integrationsuiteextensionapp1.controller.MainView", {});
+});

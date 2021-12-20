@@ -2,6 +2,13 @@
   "welcomeFile": "/index.html",
   "routes": [
     {
+      "source": "^/integrationsuiteextnbackend/(.*)$",
+      "target": "$1",
+      "authenticationType": "none",
+      "destination": "backend",
+      "csrfProtection": false
+    },
+    {
       "source": "^(.*)",
       "target": "$1",
       "authenticationType": "xsuaa",
