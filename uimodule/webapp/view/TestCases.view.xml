@@ -10,6 +10,17 @@
 			mode="SingleSelectMaster"
 			itemPress="onListItemPressed"
 			selectionChange="onListItemPressed">
+        <headerToolbar>
+          <OverflowToolbar>
+            <content>
+              <Title text="TestCases" level="H2"/>
+              <ToolbarSpacer />
+              <Button id="createTestCase"
+                icon="sap-icon://add"
+                press="onCreateTestCase" />
+            </content>
+          </OverflowToolbar>
+        </headerToolbar>
         <columns>
           <Column
             width="5em"
@@ -37,7 +48,7 @@
             <Text text="Method" />
           </Column>
           <Column
-            width="11em"
+            width="18em"
             hAlign="Center">
             <Text text="Input" />
           </Column>
@@ -55,8 +66,11 @@
                 text="{TestCases>Description}" />
               <Text 
                 text="{TestCases>Method}" />
-              <Text 
-                text="{TestCases>Input}" />
+              <ObjectIdentifier
+                id="idPayloadLink"
+                title="{TestCases>Input}"
+                titleActive="true"
+                titlePress="onFileLinkPress" />
             </cells>
           </ColumnListItem>
         </items>

@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:u="sap.ui.unified"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="FileDialog"
+      title="Create Test Case"
+      contentWidth="680px"
+      contentHeight="450px"
+      class="sapUiSmallMarginBottom"
+      resizable="true"
+      draggable="true"
+      >
+      <content>
+      	<TextArea value="{Payload>/data}" growing="true" />
+      </content>
+      <beginButton>
+         <Button
+            text="{i18n>dialogCreateButtonText}"
+            type="Emphasized"
+            press=".onFileOkDialog"/>
+      </beginButton>
+      <endButton>
+         <Button
+            text="{i18n>dialogCancelButtonText}"
+            press=".onFileCloseDialog"/>
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

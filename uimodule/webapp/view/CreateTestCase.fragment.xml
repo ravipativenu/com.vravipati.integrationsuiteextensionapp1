@@ -1,0 +1,67 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns:u="sap.ui.unified"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="TestCaseDialog"
+      title="Create Test Case">
+      <content>
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="TestCaseForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <Label text="Name" />
+                    <ComboBox id="nameComboBox"
+                        items="{
+                        path: 'Lookups>/scenarios',
+                        sorter: { path: 'Lookups>Name' }
+                        }">
+                        <core:Item key="{Lookups>Name}" text="{Lookups>Name}" />
+			        </ComboBox>
+                    <Label text="Testcase" />
+                    <Input id="testCaseInput"/>
+                    <Label text="Description" />
+                    <Input id="descriptionInput"/>
+                    <Label text="Method" />
+                    <Input id="methodInput"/>
+                    <Label text="Input" />
+                    <u:FileUploader
+                        id="fileUploader"
+                        name="payloadFileUpload"
+                        change="onFileUploadChange"
+                        uploadUrl="upload/"
+                        tooltip="Upload your file to the server"
+                        uploadComplete="handleUploadComplete"/>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+      </content>
+      <beginButton>
+         <Button
+            text="{i18n>dialogCreateButtonText}"
+            type="Emphasized"
+            press=".onCreateDialog"/>
+      </beginButton>
+      <endButton>
+         <Button
+            text="{i18n>dialogCancelButtonText}"
+            press=".onCloseDialog"/>
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>
