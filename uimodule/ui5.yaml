@@ -29,7 +29,7 @@ server:
         xsappJson: webapp/xs-app.json
         destinations:
           - name: "backend"
-            url: "http://localhost:9090/"
+            url: "https://integration-suite-extention.c-4b20a39.kyma.shoot.live.k8s-hana.ondemand.com/"
 builder:
   customTasks:
     -  name: ui5-task-zipper

@@ -4,8 +4,8 @@ sap.ui.define([
   "com/vravipati/integrationsuiteextensionapp1/service/http",
   ], function (http) {
 
-    var host = "/integrationsuiteextnbackend";
-    var servicePath = "/api/testing";
+    var host = "";
+    var servicePath = "api/testing";
     var baseUrl = host + servicePath;
     var parameters = "";
     var parameters1 = "";
@@ -14,7 +14,6 @@ sap.ui.define([
     return {
 
       getTestCases: function() {
-
         return http
         .get(baseUrl + "/testcases")
         .then(function (response) {
@@ -23,77 +22,34 @@ sap.ui.define([
         });
 
       },
-      getSCPIMetrics: function (start, end) {
-        if (start && end) {
-          parameters = "?start=" + start + "&end=" + end;
-        }
-        return http
-          .get(baseUrl + "/runtime-artifacts" + parameters)
-          .then(function (response) {
-            return response;
-          });
-      },
 
-      getSCPIInterfaceDetails: function (id) {
-        if (id) {
-          parameters = "?id=" + id;
-        }
+      getScenarios: function() {
         return http
-          .get(baseUrl + "/interface-details" + parameters)
-          .then(function (response) {
-            return response;
-          });
-      },
-
-      getSCPIMPLDetails: function (id, start, end) {
-        if (id) {
-          parameters = "?id=" + id + "&start=" + start + "&end=" + end;
-        }
-        return http
-          .get(baseUrl + "/mpl-details" + parameters)
-          .then(function (response) {
-            return response;
-          });
-      },
-
-      getUDMSDetails: function (id) {
-
-        if (id) {
-          parameters = `?id=${id}`;
-        }
-        return http
-        .get(host + "/api/monitoring/udmsattributes" + parameters)
+        .get(baseUrl + "/scenarios")
         .then(function (response) {
-          //console.log("VENU DEBUG");
-          //console.log(response);
-          return response.value;
-        });
-
-
-      },
-
-      getSCPIMPLUDMSDetails: function(id, start, end, udmsKey, udmsValue) {
-
-        parameters1 = "";
-        parameters2 = "";
-        
-        if (id) {
-          parameters1 = "?id=" + id + "&start=" + start + "&end=" + end;
-        }
-
-
-        if (udmsKey != '' && udmsValue != '') {
-          parameters2 = '&udmsKey=' + udmsKey + '&udmsValue=' + udmsValue ;
-        }
-
-
-        return http
-        .get(host + "/api/monitoring/udmsdata" + parameters1 + parameters2)
-        .then(function (response) {
+          console.log(response)
           return response;
         });
 
+      },
 
+      loadTestCase: function(data) {
+        return http
+        .post(baseUrl + "/testcases", data)
+        .then(function (response) {
+          console.log(response)
+          return response;
+        });
+
+      },
+
+      getPayload: function(filename) {
+        return http
+        .get(baseUrl + "/payload?id=" + filename)
+        .then(function (response) {
+          console.log(response)
+          return response;
+        });
       }
 
     }

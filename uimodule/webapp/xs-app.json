@@ -2,8 +2,7 @@
   "welcomeFile": "/index.html",
   "routes": [
     {
-      "source": "^/integrationsuiteextnbackend/(.*)$",
-      "target": "$1",
+      "source": "^/api/(.*)$",
       "authenticationType": "none",
       "destination": "backend",
       "csrfProtection": false
